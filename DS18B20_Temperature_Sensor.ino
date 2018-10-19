@@ -4,12 +4,33 @@
 //Yellow  Signal
 
 // 4.7k OHM RES BTWN DATA AND VCC
+/******************************************************************/
+ 
+ Basic ESP8266 MQTT example Rui Santos
+ Forked from http://bit.ly/1qH7Gsf
 
+/LIBRARIES********************************************************/
+#include <ESP8266WiFi.h>         // MQTT
+#include <PubSubClient.h>        //MQTT
+#include <OneWire.h>             //DS18B20
+#include <DallasTemperature.h>   //DS18B20
+/******************************************************************/
+ 
+ 
+ // Update these with values suitable for your network.
+const char* ssid = "YOUR_SSID";
+const char* password = "YOUR_PASSWORD";
+const char* mqtt_server = "YOUR_RPi_IP_Address";
+
+WiFiClient espClient;
+PubSubClient client(espClient);
+long lastMsg = 0;
+char msg[50];
+int value = 0;
 
 /********************************************************************/
 // First we include the libraries
-#include <OneWire.h> 
-#include <DallasTemperature.h>
+
 /********************************************************************/
 // Data wire is plugged into pin 2 on the Arduino 
 #define ONE_WIRE_BUS 2 
