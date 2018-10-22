@@ -1,5 +1,5 @@
 //Wiring
-//Red   Vcc
+//Red   Vcc  -to 5V  using signal converter to 3V3
 //Blk   Grnd
 //Yellow  Signal
 
@@ -12,7 +12,7 @@
 #include <DallasTemperature.h>
 /********************************************************************/
 // Data wire is plugged into pin 2 on the Arduino 
-#define ONE_WIRE_BUS 2 
+#define ONE_WIRE_BUS 5 //Maps to D1 on WemosD1 R2...D5 on Arduino
 /********************************************************************/
 // Setup a oneWire instance to communicate with any OneWire devices  
 // (not just Maxim/Dallas temperature ICs) 
